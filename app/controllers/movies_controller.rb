@@ -22,9 +22,32 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
+    if @movie.user_id != current_user.id
+      redirect_to movie_path, alert: "不正なアクセスです。"
+    end
   end
+
+  def update
+    @movie = Movie.find(params[:id])
+    if @movie.update(movie_params)
+      flash[:notice] = "更新しました！"
+      redirect_to movie_path(@movie)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    movie = Movie.find(params[:id])
+    movie.destroy
+    redirect_to movie_path
+  end
+
+  private
 
   def movie_params
     params.require(:movie).permit(:title, :body)
   end
+  
 end
