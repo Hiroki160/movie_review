@@ -1,4 +1,5 @@
 class MoviesController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   def index
     @movies = Movie.all
   end
@@ -41,7 +42,7 @@ class MoviesController < ApplicationController
   def destroy
     movie = Movie.find(params[:id])
     movie.destroy
-    redirect_to movie_path
+    redirect_to movies_path
   end
 
   private
@@ -49,5 +50,5 @@ class MoviesController < ApplicationController
   def movie_params
     params.require(:movie).permit(:title, :body)
   end
-  
+
 end
