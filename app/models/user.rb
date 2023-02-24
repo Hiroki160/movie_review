@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   has_many :movies, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 end
