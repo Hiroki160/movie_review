@@ -16,9 +16,13 @@
             <td><%= movie.user.name %></td>
             <td>
               <% if current_user.already_favorited?(movie) %>
-                <%= link_to  "いいねを外す", movie_favorites_path(movie), method: :delete %>
+                <%= link_to movie_favorites_path(movie), method: :delete do %>
+                  <i class="fas fa-heart"></i>
+                <% end %>
               <% else %>
-                <%= link_to "いいね", movie_favorites_path(movie), method: :post %>
+                <%= link_to movie_favorites_path(movie), method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
               <% end %>
               <%= movie.favorites.count %>
             </td>
