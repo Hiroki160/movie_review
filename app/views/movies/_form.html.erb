@@ -8,6 +8,11 @@
    <label>感想</label>
    <%= f.text_area :body, class: "form-control" %>
   </div>
+  
+  <div class="form-group">
+   <label>画像</label>
+   <%= f.file_field :image, accept: "image/*" %>
+  </div>
 
 <%= f.submit class: "btn btn-success" %>
 

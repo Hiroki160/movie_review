@@ -4,6 +4,12 @@
       <div class="card">
         <div class="card-body">
           <h5 class="card-title"><%= @movie.title %></h5>
+          <p>画像</p>
+            <% if @movie.image.attached? %>
+              <%= image_tag @movie.image, size: "100×100" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "100×100" %>
+            <% end %>
           <p class="card-text"><%= simple_format @movie.body %></p>
           <p class="card-text">
             <small class="text-muted">更新日：<%= @movie.updated_at.strftime("%Y-%m-%d") %></small>
