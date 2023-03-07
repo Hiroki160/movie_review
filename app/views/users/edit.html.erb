@@ -24,6 +24,10 @@
         <div class="form-group">
           <%= f.text_field :email, class: "form-control" %>
         </div>
+        <label>プロフィール画像</label>
+        <div class="form-group">
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
         <div>
           <%= f.submit class: "btn btn-success" %>
         </div>

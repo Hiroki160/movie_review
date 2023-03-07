@@ -7,7 +7,8 @@ class User < ApplicationRecord
   validates :name, presence: true
   has_many :movies, dependent: :destroy
   has_many :favorites, dependent: :destroy
-  
+  has_one_attached :image
+
   def already_favorited?(movie)
     self.favorites.exists?(movie_id: movie.id)
   end
