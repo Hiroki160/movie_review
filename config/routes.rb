@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'reviews/index'
   root to: 'users#show'
 
   devise_for :users
