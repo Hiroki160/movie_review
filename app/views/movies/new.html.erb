@@ -4,6 +4,7 @@
     <div class="col-6 mx-auto">
       <h2>新規投稿</h2>
       <%= render 'form', movie: @movie %>
+      <%= render 'reviews/form', review: @review, movie: @movie %>
     </div>
   </div>
 </div>
