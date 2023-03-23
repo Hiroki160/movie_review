@@ -6,9 +6,9 @@
           <h5 class="card-title"><%= @movie.title %></h5>
           <p>画像</p>
             <% if @movie.image.attached? %>
-              <%= image_tag @movie.image, size: "100×100" %>
+              <%= image_tag @movie.image, class: "movie_icon" %>
             <% else %>
-              <%= image_tag 'no_image', size: "100×100" %>
+              <%= image_tag 'no_image', class: "movie_icon" %>
             <% end %>
           <p class="card-text"><%= simple_format @movie.body %></p>
           <p class="card-text">
