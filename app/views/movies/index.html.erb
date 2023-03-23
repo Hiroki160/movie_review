@@ -1,37 +1,39 @@
-<div class="container mt-5">
-  <div class="row">
-    <div class="col-10 mx-auto">
 
-          <% @movies.each do |movie| %>
-
-            <div class="card" style="width: 18rem;">
-              <div class="card-img-top">
-                <% if movie.image.attached? %>
-                  <%= image_tag movie.image, class: "movie_icon" %>
-                <% else %>
-                  <%= image_tag 'no_image', class: "movie_icon" %>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="cards row gx-4 gx-lg-5 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <% @movies.each do |movie| %>
+      <div class="whole-card mb-5 col-12 ml-2">
+       <div class="card h-100">
+        <div class="card-image" style="text-align: center">
+          <% if movie.image.attached? %>
+            <%= image_tag movie.image, class: "movie_icon" %>
+          <% else %>
+            <%= image_tag 'no_image', class: "movie_icon" %>
+          <% end %>
+        </div>
+        <div class="card-body p-4">
+          <div class="text-center">
+            <h5 class="card-title"><%= link_to movie.title, movie_path(movie) %></h5>
+            <h6 class="user_name">投稿者：<%= movie.user.name %></h6>
+            <p class="card-text"><%= movie.body %></p>
+            <div>
+              <% if current_user.already_favorited?(movie) %>
+                <%= link_to movie_favorites_path(movie), method: :delete do %>
+                  <i class="fas fa-heart"></i>
                 <% end %>
-              </div>
-              <div class="card-body">
-                <h5 class="card-title"><%= link_to movie.title, movie_path(movie) %></h5>
-                <h6 class="user_name">投稿者：<%= movie.user.name %></h6>
-                <p class="card-text"><%= movie.body %></p>
-                <div>
-                  <% if current_user.already_favorited?(movie) %>
-                    <%= link_to movie_favorites_path(movie), method: :delete do %>
-                      <i class="fas fa-heart"></i>
-                    <% end %>
-                  <% else %>
-                    <%= link_to movie_favorites_path(movie), method: :post do %>
-                      <i class="far fa-heart"></i>
-                    <% end %>
-                  <% end %>
-                  <%= movie.favorites.count %>
-                </div>
+              <% else %>
+                <%= link_to movie_favorites_path(movie), method: :post do %>
+                  <i class="far fa-heart"></i>
+                <% end %>
+              <% end %>
+              <%= movie.favorites.count %>
               </div>
             </div>
-          <% end %>
-
-    </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+   </div>
   </div>
-</div>
+</section>
