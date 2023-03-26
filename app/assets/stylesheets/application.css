@@ -9,6 +9,10 @@
   border-radius: 50%;
 }
 
+.bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("movie-theater.jpg");
+  background-size: cover;
+}
 /*.icon{*/
 /*  width: 80px;*/
 /*  height: 80px;*/
