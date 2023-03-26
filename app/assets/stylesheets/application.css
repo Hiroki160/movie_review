@@ -13,6 +13,16 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("movie-theater.jpg");
   background-size: cover;
 }
+
+.top {
+    color: white;
+    text-align: center;
+    padding: 200px 0;
+    line-height: 30px;
+    font-weight: bold;
+    text-shadow: 0.02em 0.02em 0.02em black;
+}
+
 /*.icon{*/
 /*  width: 80px;*/
 /*  height: 80px;*/
