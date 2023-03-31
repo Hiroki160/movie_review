@@ -8,12 +8,29 @@
    <label>感想</label>
    <%= f.text_area :body, class: "form-control" %>
   </div>
-  
+
   <div class="form-group">
    <label>画像</label>
    <%= f.file_field :image, accept: "image/*" %>
   </div>
 
+  <div id="evaluate_stars">
+    <label style="margin-right: 150px; margin-bottom: 24px;">評価</label>
+  </div>
+
 <%= f.submit class: "btn btn-success" %>
+
+<!--星レビュー機能-->
+
+<script>
+  $('#evaluate_stars').raty({
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    scoreName: 'movie[star]' //登録するモデル名とカラム名を記述
+  });
+</script>
+
+<!--ここまで-->
 
 <% end %>
