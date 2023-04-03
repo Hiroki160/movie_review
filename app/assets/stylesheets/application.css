@@ -23,6 +23,14 @@
     text-shadow: 0.02em 0.02em 0.02em black;
 }
 
+.form-group {
+  color: white;
+}
+
+.title {
+  color: white;
+}
+
 /*.icon{*/
 /*  width: 80px;*/
 /*  height: 80px;*/
